@@ -1,17 +1,17 @@
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from pyarrow._s3fs import S3FileSystem
+from pyarrow.fs import S3FileSystem
 from pyarrow.parquet import ParquetDataset
 
 # Set up the S3 filesystem client
-s3 = S3FileSystem()
+# s3 = S3FileSystem()
 # Uncomment and configure with your credentials and endpoint
-# s3 = S3FileSystem(
-#     key="accesskey",  # Replace with your MinIO access key
-#     secret="secretkey",  # Replace with your MinIO secret key
-#     endpoint_override="http://127.0.0.1:9000"  # Replace with your MinIO URL
-# )
+s3 = S3FileSystem(
+    access_key="user",       # Replace with your MinIO access key
+    secret_key="password",   # Replace with your MinIO secret key
+    endpoint_override="http://127.0.0.1:9000"  # Replace with your MinIO URL
+)
 
 # Sample data to write
 data = {"column1": [1, 2, 3, 4, 5], "column2": ["a", "b", "c", "d", "e"]}
